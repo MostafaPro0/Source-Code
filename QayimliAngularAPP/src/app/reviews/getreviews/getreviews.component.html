@@ -1,0 +1,78 @@
+<div class="container">
+    <!-- Search input for Review Title -->
+    <div class="grid flex justify-content-center">
+        <div class="col-12 md:col-8 lg:col-9 xl:col-10 flex">
+            <div class="p-inputgroup mb-3 flex">
+                <span class="p-inputgroup-addon mx-1">
+                    <i class="pi pi-search"></i>
+                </span>
+                <input type="text" pInputText [placeholder]="'MoCommon.SearchByReviewType' | translate"
+                    [(ngModel)]="SearchReviewTitle" class="w-full" />
+                <button pButton [label]="'MoCommon.Search' | translate" icon="pi pi-search"
+                    class="mx-1 p-button-outlined p-button-secondary btn maincolor1-background-color"
+                    (click)="ApplySearch()">
+                </button>
+            </div>
+        </div>
+        <div class="col-12 md:col-4 lg:col-3 xl:col-2 flex justify-content-center">
+            <div class="pagination-controls">
+                <button class="btn maincolor1-background-color mx-1" pButton [label]="'MoCommon.Previous' | translate"
+                    icon="pi pi-angle-left" [disabled]="pageNum === 1" (click)="changePage(pageNum - 1)">
+                </button>
+                <button class="btn maincolor1-background-color mx-1" pButton [label]="'MoCommon.Next' | translate"
+                    icon="pi pi-angle-right" [disabled]="pageNum * numOfOnePage >= allTotalItemsCount"
+                    (click)="changePage(pageNum + 1)">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <p-table *ngIf="AllReviews != null" [value]="AllReviews.data" [paginator]="true" [rows]="numOfOnePage"
+        [totalRecords]="allTotalItemsCount" [lazy]="true" (onLazyLoad)="loadReviews($event)"
+        [first]="(pageNum - 1) * numOfOnePage" [showFirstLastIcon]="false" [responsive]="true" [breakpoint]="'960px'"
+        [rowHover]="true"
+        [tableStyle]="{ 'min-width': '50rem', 'direction': 'dir'|translate, 'margin': '10px 0 0 0px' }">
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th>{{ "MoCommon.Title" | translate }}</th>
+                <th>{{ "MoCommon.ReviewType" | translate }}</th>
+                <th>{{ "MoCommon.PostDate" | translate }}</th>
+                <th>{{ "MoCommon.Owner" | translate }}</th>
+                <th>{{ "MoCommon.Category" | translate }}</th>
+                <th>{{ "MoCommon.ShowReview" | translate }}</th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-review>
+            <tr>
+                <td>{{ review.title }}</td>
+                <td>{{ review.reviewType }}</td>
+                <td>{{ review.postDate | date:'d/M/yyyy, h:mm a' }}</td>
+                <td>{{ review.reviewOwner.displayName }}</td>
+                <td>{{ review.reviewCategory.name }}</td>
+                <td>
+                    <button pButton [label]="'MoCommon.View' | translate" icon="pi pi-eye"
+                        class="p-button-sm p-button-info maincolor1-background-color"
+                        (click)="openReviewDetails(review)">
+                    </button>
+                </td>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="paginatorright" let-state dir="{{'dir'|translate}}">
+            <div class="inside fw-bold">
+                عرض
+                <p-dropdown [options]="rowsPerPageOptions" [(ngModel)]="numOfOnePage"
+                    (onChange)="onPageSizeChange($event)">
+                </p-dropdown>
+                من أصل {{ state.totalRecords }}
+            </div>
+        </ng-template>
+
+    </p-table>
+    <!-- No reviews found message -->
+    <p *ngIf="AllReviews?.count == 0">
+        {{ 'MoCommon.NoReviewsFound' | translate }}
+    </p>
+</div>

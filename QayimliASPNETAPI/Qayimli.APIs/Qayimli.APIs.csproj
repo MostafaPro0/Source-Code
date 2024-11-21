@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\ReviewDetails\03800b87-76f8-4c0f-9b04-37423e05d9b2.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\156a23c6-3017-4945-a315-171c3a6b13df.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\26d35612-51fe-41e2-a849-2674f678a88a.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\34260ab9-d445-4d0f-9353-ec23e5e40ecf.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\478a9553-dabb-4931-be2d-2f70cafb88de.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\58b58cd8-048c-4870-ac46-50cd76852a41.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\60298af8-dd18-4cf1-947a-05a5420af2d1.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\6a745db8-4e47-4708-9769-eacf552e5915.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\79acc50e-e980-4d36-bc66-058b8104f9f0.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\8c3a4b88-9396-498a-a023-730a0db946ff.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\947c5027-66eb-4166-a193-adefb193fe5f.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\9535c8e5-e027-42c8-864d-0121273c23e4.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\d2f3a16d-dd3a-46df-a72c-9b36e6978bb6.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\dd7cb3bd-5e97-489d-ba52-7b90cb21b886.jpeg" />
+    <None Include="wwwroot\Images\ReviewDetails\e15c82b9-ce58-4507-9154-f0bcc84ae5ef.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Qayimli.Repository\Qayimli.Repository.csproj" />
+    <ProjectReference Include="..\Qayimli.Service\Qayimli.Service.csproj" />
+  </ItemGroup>
+
+</Project>

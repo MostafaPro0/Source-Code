@@ -1,0 +1,39 @@
+<div class="settings-box mainborderdiv" style="display: none;">
+  <div class="settings-container">
+    <div class="option-box">
+      <h4 class="fw-bold">Colors</h4>
+      <ul class="colors-list my-1">
+        <li class="mx-1" class="active" data-color="#8A74F9" (click)="this._AppComponent.saveMainColor($event)"></li>
+        <li class="mx-1" data-color="#E91E63" (click)="this._AppComponent.saveMainColor($event)"></li>
+        <li class="mx-1" data-color="#009688" (click)="this._AppComponent.saveMainColor($event)"></li>
+        <li class="mx-1" data-color="#03A9f4" (click)="this._AppComponent.saveMainColor($event)"></li>
+        <li class="mx-1" data-color="#4CAF50" (click)="this._AppComponent.saveMainColor($event)"></li>
+      </ul>
+    </div>
+    <!--      <div class="option-box">
+          <h4>Rondom Backgrounds</h4>
+          <div class="rondom-backgrounds">
+            <span class="yes active" data-background="yes">Yes</span>
+            <span class="no" data-background="no">No</span>
+          </div>
+        </div>
+        <div class="option-box">
+          <h4>Show Bullets</h4>
+          <div class="bull-option">
+            <span class="yes active" data-display="show">Yes</span>
+            <span class="no" data-display="hide">No</span>
+          </div>
+        </div> -->
+    <div class="option-box p-1">
+      <button type="button" class="btn btn-danger momainbackgroundcolor1 py-1 px-0 m-0 text-center w-50"
+        data-color="#8A74F9" (click)="this._AppComponent.saveMainColor($event)">Reset Color</button>
+    </div>
+  </div>
+</div>
+<div class="dock-container w-25">
+  <p-dock [model]="dockItems" position="bottom">
+    <ng-template pTemplate="item" let-item>
+      <img class="custom-cursor-pointer" [src]="item.icon" [alt]="item.label" width="100%">
+    </ng-template>
+  </p-dock>
+</div>
